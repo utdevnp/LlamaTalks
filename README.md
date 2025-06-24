@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ullama Chat App
+
+A modern, multi-model AI chat application built with Next.js, React, and Tailwind CSS. This project provides a beautiful chat interface for interacting with local Ollama models, supporting multiple conversations, markdown rendering, and model selection.
+
+## Features
+- Chat with local Ollama models (Llama 3, Gemma, Mistral, Code Llama, Phi 3, etc.)
+- Multiple conversations with dynamic topic naming
+- Markdown and code rendering in responses
+- Responsive, modern UI with dark mode support
+- Model selection per conversation
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd Olama/olama-test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+yarn install
+# or
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start Ollama (if not already running)
+Make sure you have [Ollama](https://ollama.com/) installed and running locally. You can start a model with:
+```bash
+ollama run llama3
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run the Development Server
+```bash
+yarn dev
+# or
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser to use the app.
 
-To learn more about Next.js, take a look at the following resources:
+## Changing the Default Model Selection
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The default model for new conversations is set in `src/app/page.tsx`:
+```js
+const [lastChosenModel, setLastChosenModel] = useState('llama3.2:latest');
+```
+To change the default, update the string (e.g., to `'mistral'`, `'gemma'`, etc.).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can also edit the `<select>` options in the sidebar to add or remove available models.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
+- `src/app/page.tsx` — Main chat UI and logic
+- `src/app/layout.tsx` — App layout and metadata
+- `src/app/api/ollama/route.ts` — API route for communicating with Ollama
+- `public/` — Static assets
+- `tailwind.config.ts` — Tailwind CSS configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT
