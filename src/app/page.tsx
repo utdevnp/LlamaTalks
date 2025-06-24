@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Components } from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -26,14 +28,20 @@ const markdownComponents: Components = {
   ),
   code: ({ children, className }) => {
     const isInline = !className;
+    const match = /language-(\w+)/.exec(className || '');
     return isInline ? (
       <code className="bg-gray-700/50 dark:bg-gray-900/50 rounded px-1 py-0.5">
         {children}
       </code>
     ) : (
-      <code className="text-sm text-gray-100 block">
-        {children}
-      </code>
+      <SyntaxHighlighter
+        style={dracula}
+        language={match ? match[1] : undefined}
+        PreTag="div"
+        customStyle={{ borderRadius: '0.75rem', padding: '0.5rem 1rem', fontSize: '0.95em', margin: '0.5rem 0' }}
+      >
+        {String(children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
     );
   },
   a: ({ children, href }) => (
