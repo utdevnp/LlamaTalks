@@ -13,8 +13,8 @@ A modern, multi-model AI chat application built with Next.js, React, and Tailwin
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd Olama/olama-test
+git clone git@github.com:utshabeb/ullama.git
+cd ullama
 ```
 
 ### 2. Install Dependencies
