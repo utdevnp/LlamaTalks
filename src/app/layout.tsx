@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ullama",
-  description: "Ullama - Your AI assistant for questions, ideas, and more.",
+  title: "LlamaTalks",
+  description: "LlamaTalks - Your AI assistant for questions, ideas, and more.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Ullama</title>
+        <title>LlamaTalks</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -318,9 +318,9 @@ export default function Home() {
           >
             {messages.length === 0 && !isLoading ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">Welcome to Ullama!</h2>
+                <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-100">Welcome to LlamaTalks!</h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-3 text-lg max-w-xl mx-auto">
-                  Ullama is your AI assistant, ready to help you with questions, ideas, and everyday tasks. Whether you're curious about technology, need help with code, or just want to brainstorm, I'm here for you.
+                  LlamaTalks is your AI assistant, ready to help you with questions, ideas, and everyday tasks. Whether you're curious about technology, need help with code, or just want to brainstorm, I'm here for you.
                 </p>
                 <p className="text-gray-700 dark:text-gray-200 mb-4 text-base font-medium">Here are some things you can try:</p>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-200 text-base space-y-1 text-left max-w-md mx-auto">
